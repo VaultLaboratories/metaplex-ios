@@ -15,7 +15,7 @@
       "location" : "https://github.com/VaultLaboratories/metaplex-swift-program-library",
       "state" : {
         "branch" : "main",
-        "revision" : "df7725a3cc56c7c71a989daee780650b45270fab"
+        "revision" : "2fe8f80923378b1d277ee28af5c5dc4541d3e32a"
       }
     },
     {
@@ -39,19 +39,19 @@
     {
       "identity" : "solana.swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/metaplex-foundation/Solana.Swift.git",
+      "location" : "https://github.com/VaultLaboratories/Solana.Swift",
       "state" : {
-        "branch" : "2.0.2",
-        "revision" : "f7bd54eee1ccf31f717b1a98b64b9ae12413e66d"
+        "branch" : "master",
+        "revision" : "617d600d979a598b48a22f72a690e1534e401f28"
       }
     },
     {
       "identity" : "solita-swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/metaplex-foundation/solita-swift.git",
+      "location" : "https://github.com/VaultLaboratories/solita-swift.git",
       "state" : {
-        "branch" : "1.0.3",
-        "revision" : "4a10fced01084777db9c86547d66acd983799a90"
+        "branch" : "main",
+        "revision" : "c041acbcc0b2e066eddc48a59c1f960fd08974bd"
       }
     },
     {
