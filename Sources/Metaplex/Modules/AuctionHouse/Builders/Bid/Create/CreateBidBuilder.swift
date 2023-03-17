@@ -38,7 +38,7 @@ extension TransactionBuilder {
         let buyInstruction: TransactionInstruction
         var buySigners = [parameters.buyerSigner]
 
-        #warning("This is incorrect and does not consider auctionHouse.authority sense it is not an Account")
+        #warning("This is incorrect and does not consider auctionHouse.authority sense it is not an Signer")
         if let authoritySigner = parameters.authoritySigner {
             buySigners.append(authoritySigner)
         }
@@ -110,7 +110,7 @@ extension TransactionBuilder {
             return (shouldPrintReciept, instruction)
         }()
 
-        // MARK: - Create Token Account Instruction
+        // MARK: - Create Token Signer Instruction
 
         #warning("Create an account if it doesn't exist. Will come back to this as there's a bit involved.")
 

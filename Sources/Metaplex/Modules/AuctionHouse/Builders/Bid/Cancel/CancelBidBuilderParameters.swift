@@ -52,5 +52,5 @@ struct CancelBidBuilderParameters {
 
     // MARK: - Signers
 
-    var auctioneerAuthoritySigner: Account? { cancelBidInput.auctioneerAuthority }
+    var auctioneerAuthoritySigner: Signer? { cancelBidInput.auctioneerAuthority }
 }

@@ -13,7 +13,7 @@ struct MintCandyMachineBuilderParameters {
     private let mintCandyMachineInput: MintCandyMachineInput
     private let candyMachineCreatorPda: Pda
     private let associatedAccount: PublicKey
-    private let defaultIdentity: Account
+    private let defaultIdentity: Signer
     
     let metadata: PublicKey
     let masterEdition: PublicKey
@@ -24,7 +24,7 @@ struct MintCandyMachineBuilderParameters {
         metadata: PublicKey,
         masterEdition: PublicKey,
         associatedAccount: PublicKey,
-        defaultIdentity: Account
+        defaultIdentity: Signer
     ) {
         self.mintCandyMachineInput = mintCandyMachineInput
         self.candyMachineCreatorPda = candyMachineCreatorPda
@@ -70,6 +70,6 @@ struct MintCandyMachineBuilderParameters {
 
     // MARK: - Signers
 
-    var payerSigner: Account { mintCandyMachineInput.payer ?? defaultIdentity }
-    var mintSigner: Account { mintCandyMachineInput.newMint }
+    var payerSigner: Signer { mintCandyMachineInput.payer ?? defaultIdentity }
+    var mintSigner: Signer { mintCandyMachineInput.newMint }
 }

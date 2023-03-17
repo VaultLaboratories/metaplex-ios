@@ -15,9 +15,9 @@ struct CreateAuctionHouseInput {
     let canChangeSalePrice: Bool
     let auctioneerScopes: [AuthorityScope]
     let treasuryMint: PublicKey
-    let payer: Account?
-    let authority: Account?
-    let feeWithdrawalDestination: Account?
+    let payer: Signer?
+    let authority: Signer?
+    let feeWithdrawalDestination: Signer?
     let treasuryWithdrawalDestinationOwner: PublicKey?
     let auctioneerAuthority: PublicKey?
 
@@ -27,9 +27,9 @@ struct CreateAuctionHouseInput {
         canChangeSalePrice: Bool = false,
         auctioneerScopes: [AuthorityScope] = [],
         treasuryMint: PublicKey = Auctionhouse.treasuryMintDefault,
-        payer: Account? = nil,
-        authority: Account? = nil,
-        feeWithdrawalDestination: Account? = nil,
+        payer: Signer? = nil,
+        authority: Signer? = nil,
+        feeWithdrawalDestination: Signer? = nil,
         treasuryWithdrawalDestinationOwner: PublicKey? = nil,
         auctioneerAuthority: PublicKey? = nil
     ) {

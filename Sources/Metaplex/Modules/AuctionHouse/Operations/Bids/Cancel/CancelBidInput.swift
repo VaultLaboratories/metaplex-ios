@@ -10,12 +10,12 @@ import Foundation
 import Solana
 
 struct CancelBidInput {
-    let auctioneerAuthority: Account?
+    let auctioneerAuthority: Signer?
     let auctionHouse: AuctionhouseArgs
     let bid: Bid
 
     init(
-        auctioneerAuthority: Account? = nil,
+        auctioneerAuthority: Signer? = nil,
         auctionHouse: AuctionhouseArgs,
         bid: Bid
     ) {

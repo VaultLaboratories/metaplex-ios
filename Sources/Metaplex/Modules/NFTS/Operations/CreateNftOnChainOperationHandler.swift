@@ -9,10 +9,10 @@ import Foundation
 import Solana
 
 public enum AccountState {
-    case new(Account)
-    case existing(Account)
+    case new(Signer)
+    case existing(Signer)
 
-    var account: Account {
+    var account: Signer {
         switch self {
         case .new(let account):
             return account
@@ -24,7 +24,7 @@ public enum AccountState {
 
 public struct CreateNftInput {
     let mintAccountState: AccountState
-    let account: Account
+    let account: Signer
     let name: String
     let symbol: String?
     let uri: String

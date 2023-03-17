@@ -11,8 +11,8 @@ import Solana
 
 struct MintCandyMachineInput {
     let candyMachine: CandyMachine
-    let payer: Account?
-    let newMint: Account
+    let payer: Signer?
+    let newMint: Signer
     let newOwner: PublicKey?
     let newToken: PublicKey?
     let payerToken: PublicKey?
@@ -20,8 +20,8 @@ struct MintCandyMachineInput {
 
     init(
         candyMachine: CandyMachine,
-        payer: Account? = nil,
-        newMint: Account = HotAccount()!,
+        payer: Signer? = nil,
+        newMint: Signer = HotAccount()!,
         newOwner: PublicKey? = nil,
         newToken: PublicKey? = nil,
         payerToken: PublicKey? = nil,

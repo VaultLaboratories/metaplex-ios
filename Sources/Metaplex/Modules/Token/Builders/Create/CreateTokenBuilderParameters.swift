@@ -9,20 +9,20 @@ import Foundation
 import Solana
 
 struct CreateTokenBuilderParameters {
-    let payerSigner: Account
+    let payerSigner: Signer
     let owner: PublicKey
     let mint: PublicKey
     let associatedAccount: PublicKey
-    let newAccountSigner: Account?
+    let newAccountSigner: Signer?
     let programId: PublicKey
     let associatedProgramId: PublicKey
 
     init(
-        payerSigner: Account,
+        payerSigner: Signer,
         owner: PublicKey? = nil,
         mint: PublicKey,
         associatedAccount: PublicKey,
-        newAccountSigner: Account? = nil,
+        newAccountSigner: Signer? = nil,
         programId: PublicKey = .tokenProgramId,
         associatedProgramId: PublicKey = .splAssociatedTokenAccountProgramId
     ) {

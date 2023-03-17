@@ -33,7 +33,7 @@ extension TransactionBuilder {
             accounts: CancelInstructionAccounts(accounts: accounts),
             args: CancelInstructionArgs(args: args)
         )
-        var cancelSigners: [Account] = []
+        var cancelSigners: [Signer] = []
 
         if let auctioneerAuthoritySigner = parameters.auctioneerAuthoritySigner,
            let auctioneerPda = parameters.auctioneerPda {

@@ -13,16 +13,16 @@ struct ExecuteSaleInput {
     let bid: Bid
     let listing: Listing
     let auctionHouse: AuctionhouseArgs
-    let auctioneerAuthority: Account?
-    let bookkeeper: Account?
+    let auctioneerAuthority: Signer?
+    let bookkeeper: Signer?
     let printReceipt: Bool
 
     init(
         bid: Bid,
         listing: Listing,
         auctionHouse: AuctionhouseArgs,
-        auctioneerAuthority: Account? = nil,
-        bookkeeper: Account? = nil,
+        auctioneerAuthority: Signer? = nil,
+        bookkeeper: Signer? = nil,
         printReceipt: Bool = true
     ) {
         self.bid = bid

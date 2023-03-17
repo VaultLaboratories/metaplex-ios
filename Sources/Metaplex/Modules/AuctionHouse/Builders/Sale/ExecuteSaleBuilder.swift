@@ -57,7 +57,7 @@ extension TransactionBuilder {
             args: ExecuteSaleInstructionArgs(args: saleArgs)
         )
 
-        var saleSigners: [Account] = []
+        var saleSigners: [Signer] = []
         parameters.nft.creators.forEach { creator in
             executeSaleInstruction.append(
                 AccountMeta(

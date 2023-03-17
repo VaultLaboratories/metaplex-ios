@@ -15,7 +15,7 @@ struct CreateBidBuilderParameters {
     private let createBidInput: CreateBidInput
     private let escrowPaymentPda: Pda
     private let buyerTradePda: Pda
-    private let defaultIdentity: Account
+    private let defaultIdentity: Signer
 
     let paymentAccount: PublicKey
     let metadata: PublicKey
@@ -26,7 +26,7 @@ struct CreateBidBuilderParameters {
         createBidInput: CreateBidInput,
         escrowPaymentPda: Pda,
         buyerTradePda: Pda,
-        defaultIdentity: Account,
+        defaultIdentity: Signer,
         paymentAccount: PublicKey,
         metadata: PublicKey,
         auctionHouse: PublicKey,
@@ -76,8 +76,8 @@ struct CreateBidBuilderParameters {
 
     // MARK: - Signers
 
-    var buyerSigner: Account { createBidInput.buyer ?? defaultIdentity }
-    var authoritySigner: Account? { createBidInput.authority }
-    var auctioneerAuthoritySigner: Account? { createBidInput.auctioneerAuthority }
-    var bookkeeperSigner: Account { createBidInput.bookkeeper ?? defaultIdentity }
+    var buyerSigner: Signer { createBidInput.buyer ?? defaultIdentity }
+    var authoritySigner: Signer? { createBidInput.authority }
+    var auctioneerAuthoritySigner: Signer? { createBidInput.auctioneerAuthority }
+    var bookkeeperSigner: Signer { createBidInput.bookkeeper ?? defaultIdentity }
 }

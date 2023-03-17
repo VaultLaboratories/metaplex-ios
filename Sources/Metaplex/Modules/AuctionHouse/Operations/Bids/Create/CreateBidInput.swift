@@ -11,29 +11,29 @@ import Solana
 
 struct CreateBidInput {
     let auctionHouse: AuctionhouseArgs
-    let buyer: Account?
-    let authority: Account?
-    let auctioneerAuthority: Account?
+    let buyer: Signer?
+    let authority: Signer?
+    let auctioneerAuthority: Signer?
     let mintAccount: PublicKey
     let seller: PublicKey?
     let tokenAccountAddress: PublicKey?
     let price: UInt64?
     let tokens: UInt64?
     let printReceipt: Bool
-    let bookkeeper: Account?
+    let bookkeeper: Signer?
 
     init(
         auctionHouse: AuctionhouseArgs,
-        buyer: Account? = nil,
-        authority: Account? = nil,
-        auctioneerAuthority: Account? = nil,
+        buyer: Signer? = nil,
+        authority: Signer? = nil,
+        auctioneerAuthority: Signer? = nil,
         mintAccount: PublicKey,
         seller: PublicKey? = nil,
         tokenAccountAddress: PublicKey? = nil,
         price: UInt64? = 0,
         tokens: UInt64? = 1,
         printReceipt: Bool = true,
-        bookkeeper: Account? = nil
+        bookkeeper: Signer? = nil
     ) {
         self.auctionHouse = auctionHouse
         self.buyer = buyer

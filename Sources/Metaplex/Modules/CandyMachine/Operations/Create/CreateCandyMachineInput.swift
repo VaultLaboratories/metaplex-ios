@@ -10,19 +10,19 @@ import Foundation
 import Solana
 
 struct CreateCandyMachineInput {
-    let candyMachine: Account
-    let wallet: Account?
-    let payer: Account?
-    let authority: Account?
+    let candyMachine: Signer
+    let wallet: Signer?
+    let payer: Signer?
+    let authority: Signer?
     let collection: PublicKey?
     let tokenMint: PublicKey?
     let candyMachineConfig: CandyMachineConfig
 
     init(
-        candyMachine: Account = HotAccount()!,
-        wallet: Account? = nil,
-        payer: Account? = nil,
-        authority: Account? = nil,
+        candyMachine: Signer = HotAccount()!,
+        wallet: Signer? = nil,
+        payer: Signer? = nil,
+        authority: Signer? = nil,
         collection: PublicKey? = nil,
         tokenMint: PublicKey? = nil,
         candyMachineConfig: CandyMachineConfig

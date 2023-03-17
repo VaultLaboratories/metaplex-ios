@@ -8,7 +8,7 @@
 import Foundation
 import Solana
 
-public protocol IdentityDriver: Account {
+public protocol IdentityDriver: Signer {
     var publicKey: PublicKey { get }
 
     func sign(serializedMessage: Data) throws -> Data

@@ -32,7 +32,7 @@ extension TransactionBuilder {
             )
         }
 
-        // MARK: - System Account Instruction
+        // MARK: - System Signer Instruction
 
         let accountInstruction = SystemProgram.createAccountInstruction(
             from: parameters.payer,

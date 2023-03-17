@@ -13,8 +13,7 @@ let package = Package(
             targets: ["Metaplex"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/VaultLaboratories/metaplex-swift-program-library", branch: "main"),
-        .package(url: "https://github.com/VaultLaboratories/Solana.Swift", branch: "master")
+        .package(url: "https://github.com/VaultLaboratories/metaplex-swift-program-library", branch: "main")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

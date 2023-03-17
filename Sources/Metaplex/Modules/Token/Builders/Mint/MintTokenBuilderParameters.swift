@@ -9,18 +9,18 @@ import Foundation
 import Solana
 
 struct MintTokenBuilderParameters {
-    let payerSigner: Account
-    let mintSigner: Account
+    let payerSigner: Signer
+    let mintSigner: Signer
     let destination: PublicKey
-    let mintAuthority: Account
+    let mintAuthority: Signer
     let amount: UInt64
     let tokenProgramId: PublicKey
 
     init(
-        payerSigner: Account,
-        mintSigner: Account,
+        payerSigner: Signer,
+        mintSigner: Signer,
         destination: PublicKey,
-        mintAuthority: Account? = nil,
+        mintAuthority: Signer? = nil,
         amount: UInt64 = 1,
         tokenProgramId: PublicKey = .tokenProgramId
     ) {

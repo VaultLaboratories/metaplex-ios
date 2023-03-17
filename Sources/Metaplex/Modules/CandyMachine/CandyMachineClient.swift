@@ -19,10 +19,10 @@ public class CandyMachineClient {
     // MARK: - Candy Machine
 
     public func create(
-        candyMachine: Account = HotAccount()!,
-        wallet: Account? = nil,
-        payer: Account? = nil,
-        authority: Account? = nil,
+        candyMachine: Signer = HotAccount()!,
+        wallet: Signer? = nil,
+        payer: Signer? = nil,
+        authority: Signer? = nil,
         collection: PublicKey? = nil,
         tokenMint: PublicKey? = nil,
         price: UInt64,
@@ -56,8 +56,8 @@ public class CandyMachineClient {
 
     public func mint(
         candyMachine: CandyMachine,
-        payer: Account? = nil,
-        newMint: Account = HotAccount()!,
+        payer: Signer? = nil,
+        newMint: Signer = HotAccount()!,
         newOwner: PublicKey? = nil,
         newToken: PublicKey? = nil,
         payerToken: PublicKey? = nil,

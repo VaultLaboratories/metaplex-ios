@@ -24,9 +24,9 @@ public class AuctionHouseClient {
         canChangeSalePrice: Bool = false,
         auctioneerScopes: [AuthorityScope] = [],
         treasuryMint: PublicKey = Auctionhouse.treasuryMintDefault,
-        payer: Account? = nil,
-        authority: Account? = nil,
-        feeWithdrawalDestination: Account? = nil,
+        payer: Signer? = nil,
+        authority: Signer? = nil,
+        feeWithdrawalDestination: Signer? = nil,
         treasuryWithdrawalDestinationOwner: PublicKey? = nil,
         auctioneerAuthority: PublicKey? = nil,
         onComplete: @escaping (Result<Auctionhouse, OperationError>) -> Void
@@ -68,16 +68,16 @@ public class AuctionHouseClient {
 
     public func bid(
         auctionHouse: AuctionhouseArgs,
-        buyer: Account? = nil,
-        authority: Account? = nil,
-        auctioneerAuthority: Account? = nil,
+        buyer: Signer? = nil,
+        authority: Signer? = nil,
+        auctioneerAuthority: Signer? = nil,
         mintAccount: PublicKey,
         seller: PublicKey? = nil,
         tokenAccountAddress: PublicKey? = nil,
         price: UInt64? = 0,
         tokens: UInt64? = 1,
         printReceipt: Bool = true,
-        bookkeeper: Account? = nil,
+        bookkeeper: Signer? = nil,
         onComplete: @escaping (Result<Bid, OperationError>) -> Void
     ) {
         let operation = CreateBidOperationHandler(metaplex: metaplex)
@@ -143,7 +143,7 @@ public class AuctionHouseClient {
     }
 
     public func cancelBid(
-        auctioneerAuthority: Account? = nil,
+        auctioneerAuthority: Signer? = nil,
         auctionHouse: AuctionhouseArgs,
         bid: Bid,
         onComplete: @escaping (Result<SignatureStatus, OperationError>) -> Void
@@ -162,15 +162,15 @@ public class AuctionHouseClient {
 
     public func list(
         auctionHouse: AuctionhouseArgs,
-        seller: Account? = nil,
-        authority: Account? = nil,
-        auctioneerAuthority: Account? = nil,
+        seller: Signer? = nil,
+        authority: Signer? = nil,
+        auctioneerAuthority: Signer? = nil,
         mintAccount: PublicKey,
         tokenAccount: PublicKey? = nil,
         price: UInt64,
         tokens: UInt64 = 1,
         printReceipt: Bool = true,
-        bookkeeper: Account? = nil,
+        bookkeeper: Signer? = nil,
         onComplete: @escaping (Result<Listing, OperationError>) -> Void
     ) {
         let operation = CreateListingOperationHandler(metaplex: metaplex)
@@ -210,7 +210,7 @@ public class AuctionHouseClient {
     }
 
     public func cancelListing(
-        auctioneerAuthority: Account? = nil,
+        auctioneerAuthority: Signer? = nil,
         auctionHouse: Auctionhouse,
         listing: Listing,
         onComplete: @escaping (Result<SignatureStatus, OperationError>) -> Void
@@ -231,8 +231,8 @@ public class AuctionHouseClient {
         bid: Bid,
         listing: Listing,
         auctionHouse: AuctionhouseArgs,
-        auctioneerAuthority: Account? = nil,
-        bookkeeper: Account? = nil,
+        auctioneerAuthority: Signer? = nil,
+        bookkeeper: Signer? = nil,
         printReceipt: Bool = true,
         onComplete: @escaping (Result<Purchase, OperationError>) -> Void
     ) {

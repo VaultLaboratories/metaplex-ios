@@ -9,13 +9,13 @@ import Foundation
 import Solana
 
 struct CreateTokenWithMintBuilderParameters {
-    let payerSigner: Account
-    let mintSigner: Account
+    let payerSigner: Signer
+    let mintSigner: Signer
     let associatedAccount: PublicKey
 
     init(
-        payerSigner: Account,
-        mintSigner: Account,
+        payerSigner: Signer,
+        mintSigner: Signer,
         associatedAccount: PublicKey
     ) {
         self.payerSigner = payerSigner

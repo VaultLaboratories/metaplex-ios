@@ -11,30 +11,30 @@ import Solana
 class TransactionBuilder {
     struct InstructionWithSigner {
         let instruction: TransactionInstruction
-        let signers: [Account]
+        let signers: [Signer]
         let key: String
     }
 
     private let delay: TimeInterval = 1
     private let attempts = 60
 
-    private var feePayer: Account?
+    private var feePayer: Signer?
     private var instructions: [InstructionWithSigner] = []
 
     // MARK: Initialization
 
-    init(feePayer: Account? = nil, instructions: [InstructionWithSigner] = []) {
+    init(feePayer: Signer? = nil, instructions: [InstructionWithSigner] = []) {
         self.feePayer = feePayer
         self.instructions = instructions
     }
 
-    static func build(feePayer: Account? = nil, instructions: [InstructionWithSigner] = []) -> TransactionBuilder {
+    static func build(feePayer: Signer? = nil, instructions: [InstructionWithSigner] = []) -> TransactionBuilder {
         TransactionBuilder(feePayer: feePayer)
     }
 
     // MARK: - Fee Payer
 
-    func setFeePayer(_ feePayer: Account) -> TransactionBuilder {
+    func setFeePayer(_ feePayer: Signer) -> TransactionBuilder {
         self.feePayer = feePayer
         return self
     }
@@ -88,7 +88,7 @@ class TransactionBuilder {
         instructions.map { $0.instruction }
     }
 
-    private func getSigners() -> [Account] {
+    private func getSigners() -> [Signer] {
         var signers = feePayer != nil ? [feePayer!] : []
         let additionalSigners = instructions.flatMap { $0.signers }
         signers.append(contentsOf: additionalSigners)

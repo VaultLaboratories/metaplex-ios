@@ -13,12 +13,12 @@ struct CreateCandyMachineBuilderParameters {
     // MARK: - Initialization
 
     private let createCandyMachineInput: CreateCandyMachineInput
-    private let defaultIdentity: Account
+    private let defaultIdentity: Signer
     let lamports: UInt64
 
     init(
         createCandyMachineInput: CreateCandyMachineInput,
-        defaultIdentity: Account,
+        defaultIdentity: Signer,
         lamports: UInt64
     ) {
         self.createCandyMachineInput = createCandyMachineInput
@@ -47,8 +47,8 @@ struct CreateCandyMachineBuilderParameters {
 
     // MARK: - Signers
 
-    var candyMachineSigner: Account { createCandyMachineInput.candyMachine }
-    var walletSigner: Account { createCandyMachineInput.wallet ?? defaultIdentity }
-    var payerSigner: Account { createCandyMachineInput.payer ?? defaultIdentity }
-    var authoritySigner: Account { createCandyMachineInput.authority ?? defaultIdentity }
+    var candyMachineSigner: Signer { createCandyMachineInput.candyMachine }
+    var walletSigner: Signer { createCandyMachineInput.wallet ?? defaultIdentity }
+    var payerSigner: Signer { createCandyMachineInput.payer ?? defaultIdentity }
+    var authoritySigner: Signer { createCandyMachineInput.authority ?? defaultIdentity }
 }

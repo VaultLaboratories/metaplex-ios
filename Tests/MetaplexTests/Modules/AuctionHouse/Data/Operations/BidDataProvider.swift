@@ -17,8 +17,8 @@ struct BidDataProvider {
         _ metaplex: Metaplex,
         auctionHouse: AuctionhouseArgs,
         mintAccount: PublicKey,
-        buyer: Account? = nil,
-        seller: Account? = nil,
+        buyer: Signer? = nil,
+        seller: Signer? = nil,
         price: UInt64 = 650
     ) -> Bid? {
         var result: Result<Bid, OperationError>?

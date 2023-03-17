@@ -11,27 +11,27 @@ import Solana
 
 struct CreateListingInput {
     let auctionHouse: AuctionhouseArgs
-    let seller: Account?
-    let authority: Account?
-    let auctioneerAuthority: Account?
+    let seller: Signer?
+    let authority: Signer?
+    let auctioneerAuthority: Signer?
     let mintAccount: PublicKey
     let tokenAccount: PublicKey?
     let price: UInt64
     let tokens: UInt64
     let printReceipt: Bool
-    let bookkeeper: Account?
+    let bookkeeper: Signer?
 
     init(
         auctionHouse: AuctionhouseArgs,
-        seller: Account? = nil,
-        authority: Account? = nil,
-        auctioneerAuthority: Account? = nil,
+        seller: Signer? = nil,
+        authority: Signer? = nil,
+        auctioneerAuthority: Signer? = nil,
         mintAccount: PublicKey,
         tokenAccount: PublicKey? = nil,
         price: UInt64,
         tokens: UInt64 = 1,
         printReceipt: Bool = true,
-        bookkeeper: Account? = nil
+        bookkeeper: Signer? = nil
     ) {
         self.auctionHouse = auctionHouse
         self.seller = seller

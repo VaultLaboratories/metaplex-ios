@@ -16,7 +16,7 @@ struct CreateListingBuilderParameters {
     private let sellerTradeStatePda: Pda
     private let freeSellerTradeStatePda: Pda
     private let programAsSignerPda: Pda
-    private let defaultIdentity: Account
+    private let defaultIdentity: Signer
 
     let tokenAccount: PublicKey
     let metadata: PublicKey
@@ -27,7 +27,7 @@ struct CreateListingBuilderParameters {
         sellerTradeStatePda: Pda,
         freeSellerTradeStatePda: Pda,
         programAsSignerPda: Pda,
-        defaultIdentity: Account,
+        defaultIdentity: Signer,
         tokenAccount: PublicKey,
         metadata: PublicKey,
         auctionHouse: PublicKey
@@ -74,7 +74,7 @@ struct CreateListingBuilderParameters {
 
     // MARK: - Signers
 
-    var sellerSigner: Account { createListingInput.seller ?? defaultIdentity }
-    var auctioneerAuthoritySigner: Account? { createListingInput.auctioneerAuthority }
-    var bookkeeperSigner: Account { createListingInput.bookkeeper ?? defaultIdentity }
+    var sellerSigner: Signer { createListingInput.seller ?? defaultIdentity }
+    var auctioneerAuthoritySigner: Signer? { createListingInput.auctioneerAuthority }
+    var bookkeeperSigner: Signer { createListingInput.bookkeeper ?? defaultIdentity }
 }

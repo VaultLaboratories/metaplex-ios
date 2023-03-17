@@ -16,7 +16,7 @@ struct CreateAuctionHouseBuilderParameters {
     private let auctionHousePda: Pda
     private let auctionHouseFeePda: Pda
     private let auctionHouseTreasuryPda: Pda
-    private let defaultIdentity: Account
+    private let defaultIdentity: Signer
 
     let treasuryWithdrawalDestination: PublicKey
 
@@ -26,7 +26,7 @@ struct CreateAuctionHouseBuilderParameters {
         auctionHouseFeePda: Pda,
         auctionHouseTreasuryPda: Pda,
         treasuryWithdrawalDestination: PublicKey,
-        defaultIdentity: Account
+        defaultIdentity: Signer
     ) {
         self.createAuctionHouseInput = createAuctionHouseInput
         self.auctionHousePda = auctionHousePda
@@ -73,7 +73,7 @@ struct CreateAuctionHouseBuilderParameters {
 
     // MARK: - Signers
 
-    var payerSigner: Account { createAuctionHouseInput.payer ?? defaultIdentity }
-    var authoritySigner: Account { createAuctionHouseInput.authority ?? defaultIdentity }
-    var feeWithdrawalDestinationSigner: Account { createAuctionHouseInput.feeWithdrawalDestination ?? defaultIdentity }
+    var payerSigner: Signer { createAuctionHouseInput.payer ?? defaultIdentity }
+    var authoritySigner: Signer { createAuctionHouseInput.authority ?? defaultIdentity }
+    var feeWithdrawalDestinationSigner: Signer { createAuctionHouseInput.feeWithdrawalDestination ?? defaultIdentity }
 }

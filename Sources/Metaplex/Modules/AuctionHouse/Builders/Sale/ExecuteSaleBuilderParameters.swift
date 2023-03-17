@@ -16,7 +16,7 @@ struct ExecuteSaleBuilderParameters {
     private let escrowPaymentPda: Pda
     private let freeTradeStatePda: Pda
     private let programAsSignerPda: Pda
-    private let defaultIdentity: Account
+    private let defaultIdentity: Signer
 
     let tokenAccount: PublicKey
     let metadata: PublicKey
@@ -29,7 +29,7 @@ struct ExecuteSaleBuilderParameters {
         escrowPaymentPda: Pda,
         freeTradeStatePda: Pda,
         programAsSignerPda: Pda,
-        defaultIdentity: Account,
+        defaultIdentity: Signer,
         tokenAccount: PublicKey,
         metadata: PublicKey,
         sellerPaymentReceiptAccount: PublicKey,
@@ -99,7 +99,7 @@ struct ExecuteSaleBuilderParameters {
 
     // MARK: - Signers
 
-    var auctioneerAuthoritySigner: Account? { executeSaleInput.auctioneerAuthority }
-    var bookkeeperSigner: Account { executeSaleInput.bookkeeper ?? defaultIdentity }
+    var auctioneerAuthoritySigner: Signer? { executeSaleInput.auctioneerAuthority }
+    var bookkeeperSigner: Signer { executeSaleInput.bookkeeper ?? defaultIdentity }
 
 }

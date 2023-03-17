@@ -9,15 +9,15 @@ import Foundation
 import Solana
 
 struct CreateAccountBuilderParameters {
-    let payerSigner: Account
-    let newAccountSigner: Account
+    let payerSigner: Signer
+    let newAccountSigner: Signer
     let lamports: UInt64
     let space: UInt64
     let program: PublicKey
 
     init(
-        payerSigner: Account,
-        newAccountSigner: Account = HotAccount()!,
+        payerSigner: Signer,
+        newAccountSigner: Signer = HotAccount()!,
         lamports: UInt64,
         space: UInt64,
         program: PublicKey = .tokenProgramId

@@ -10,16 +10,16 @@ import Solana
 
 struct CreateMintBuilderParameters {
     let tokenProgramId: PublicKey
-    let payerSigner: Account
-    let mintSigner: Account
+    let payerSigner: Signer
+    let mintSigner: Signer
     let decimals: UInt8
     let authority: PublicKey
     let freezeAuthority: PublicKey
 
     init(
         tokenProgramId: PublicKey = .tokenProgramId,
-        payerSigner: Account,
-        mintSigner: Account,
+        payerSigner: Signer,
+        mintSigner: Signer,
         decimals: UInt8 = 0,
         authority: PublicKey? = nil,
         freezeAuthority: PublicKey? = nil

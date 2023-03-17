@@ -28,13 +28,13 @@ public protocol Connection {
     func getCreatingTokenAccountFee(space: UInt64, onComplete: @escaping (Result<UInt64, Error>) -> Void)
     func createTokenAccount(
         mintAddress: String,
-        payer: Account,
+        payer: Signer,
         onComplete: @escaping ((Result<(signature: String, newPubkey: String), Error>) -> Void)
     )
     func serializeTransaction(
         instructions: [TransactionInstruction],
         recentBlockhash: String?,
-        signers: [Account],
+        signers: [Signer],
         onComplete: @escaping ((Result<String, Error>) -> Void)
     )
     func confirmTransaction(
@@ -90,7 +90,7 @@ public class SolanaConnectionDriver: Connection {
 
     public func createTokenAccount(
         mintAddress: String,
-        payer: Account,
+        payer: Signer,
         onComplete: @escaping ((Result<(signature: String, newPubkey: String), Error>) -> Void)
     ) {
         action.createTokenAccount(mintAddress: mintAddress, payer: payer, onComplete: onComplete)
@@ -99,7 +99,7 @@ public class SolanaConnectionDriver: Connection {
     public func serializeTransaction(
         instructions: [TransactionInstruction],
         recentBlockhash: String? = nil,
-        signers: [Account],
+        signers: [Signer],
         onComplete: @escaping ((Result<String, Error>) -> Void)
     ) {
         action.serializeTransaction(instructions: instructions, recentBlockhash: recentBlockhash, signers: signers, onComplete: onComplete)
